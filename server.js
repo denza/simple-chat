@@ -14,7 +14,7 @@ var Message = mongoose.model('Message',{
   message : String
 })
 
-var dbUrl = 'mongodb://amkurian:amkurian1@ds257981.mlab.com:57981/simple-chat'
+var dbUrl = 'mongodb://mongo/simple-chat'
 
 app.get('/messages', (req, res) => {
   Message.find({},(err, messages)=> {
@@ -65,6 +65,6 @@ mongoose.connect(dbUrl ,{useMongoClient : true} ,(err) => {
   console.log('mongodb connected',err);
 })
 
-var server = http.listen(3000, () => {
+var server = http.listen(3001, () => {
   console.log('server is running on port', server.address().port);
 });
